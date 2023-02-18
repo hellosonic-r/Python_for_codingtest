@@ -1,3 +1,4 @@
+###단순하게 풀기
 n, m, k = map(int, input().split()) #5,8,3 / 8의 길이 리스트. 같은 수 최대 3번 반복 /
 
 data = sorted(list(map(int, input().split()))) #2,4,5,4,6
