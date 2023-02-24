@@ -1,6 +1,8 @@
 ###n찍기
 
-n = int(input())
+num = int(input())
 
-for i in range(1,n+1):
+for i in range(1,num+1):
     print(i) 
+
+    
