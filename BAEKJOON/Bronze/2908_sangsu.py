@@ -24,3 +24,6 @@ a = int(a[0]+a[1]+a[2])
 b = int(b[0]+b[1]+b[2])
 
 print(max(a,b))
+
+
+##int(a) for a in str(12345) # 숫자 각 자리 -> 리스트 세가지 방법
