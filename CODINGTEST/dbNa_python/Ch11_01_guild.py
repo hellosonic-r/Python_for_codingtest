@@ -12,5 +12,3 @@ for i in x: #1 2 2 2 3
         count = 0
 
 print(result)
-
-
