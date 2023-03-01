@@ -1,3 +1,4 @@
+###단어공부
 string = list(input().upper())
 
 

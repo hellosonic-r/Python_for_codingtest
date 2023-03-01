@@ -1,3 +1,4 @@
+###구구단
 n = int(input())
 def gugu(x,y):
     if y == 10:
