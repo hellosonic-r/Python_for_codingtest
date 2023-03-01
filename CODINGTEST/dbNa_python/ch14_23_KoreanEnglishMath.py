@@ -1,3 +1,4 @@
+###국영수
 n = int(input())
 students_score = []
 for _ in range(n):
