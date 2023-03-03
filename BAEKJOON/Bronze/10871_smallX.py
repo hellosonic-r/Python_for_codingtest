@@ -9,4 +9,4 @@ for num in nums:
 for i in range(len(fin)):
     print(fin[i],end = " ")
     if i == len(fin) - 1:
-        print()
+        print()     
