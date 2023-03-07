@@ -13,7 +13,6 @@ for num in nums:
             count+=1
     if count == 1:
         print(num)
-
-
+        
 ##에라토스테네스의 체
 
