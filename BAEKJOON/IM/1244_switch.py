@@ -1,39 +1,42 @@
-n = int(input())
-switch_status = list(map(int, input().split()))
-students = int(input())
-sex_num = []
-for _ in range(students):
-    sex, num = map(int, input().split())
-    sex_num.append((sex, num))
-
-def turn_switch(i):
-    global switch_status
-    switch_status[i] += 1
-    if switch_status[i] == 2:
-        switch_status[i] = 0
-
-for i in range(1, (len(switch_status)+1)):
-    for a in range(students):
-        if sex_num[a][0] == 1:
-            if i % num == 0:
-                turn_switch(i-1)
-        elif sex_num[a][0] == 2:
-            must_change_index = []
-            j = 1
-            if i == num:
-                must_change_index.append(i-1)
-                while True:
-                    if i-1-j < 0 or i-1+j > n-1:
-                        break
-                    elif switch_status[i-1-j] == switch_status[i-1+j]:
-                        must_change_index.append(i-1-j)
-                        must_change_index.append(i-1+j)
+def switching(a, b):
+    #남학생
+    if a == 1:
+        for i in range(1, len(switch_status)):
+            if i % b == 0:
+                switch_status[i] = abs(switch_status[i] - 1)
+            else:
+                continue
+    #여학생
+    elif a == 2:
+        switch_status[b] = abs(switch_status[b] - 1)
+        j = 1
+        while True:
+            if b-j == 0 or b+j == len(switch_status):
+                break
+            else:
+                if switch_status[b-j] == switch_status[b+j]:
+                    switch_status[b-j] = abs(switch_status[b-j] - 1)
+                    switch_status[b+j] = abs(switch_status[b+j] - 1)
                     j += 1
-            for k in must_change_index:
-                turn_switch(k)
-print(must_change_index)
-for z in range(n):
-    print(int(switch_status[z]),end = " ")
-    if z % 20 == 19:
-        print()        
-print()
+                else:
+                    break
+
+n = int(input())
+switch_zero = [0]
+switch = list(map(int, input().split()))
+switch_status = switch_zero + switch
+
+how_many_students = int(input())
+
+for _ in range(how_many_students):
+    sex, num = map(int, input().split())
+    switching(sex, num)
+switch_status.pop(0)
+
+for i in range(len(switch_status)):
+    if i != 0 and i % 20 == 0:
+        print()
+    print(switch_status[i],end =" ")
+    if i == len(switch_status) - 1:
+        print()
+    
