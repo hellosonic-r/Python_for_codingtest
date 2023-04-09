@@ -14,5 +14,5 @@ while max(arr) < m:
         arr[(ball_idx-l+n)%n] += 1
         ball_idx = (ball_idx-l+n)%n
     count += 1
-
+    
 print(count)
