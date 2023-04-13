@@ -28,4 +28,5 @@ for i in range(len(switch)):
         print()
     print(switch[i], end = " ")
 print()
+
         
