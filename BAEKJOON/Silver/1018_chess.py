@@ -10,3 +10,4 @@ def dfs(x,y):
     if chess[x][y] == "W":
         chess[x-1][y] =="B"
         chess
+        
