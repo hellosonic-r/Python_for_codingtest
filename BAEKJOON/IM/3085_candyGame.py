@@ -178,5 +178,4 @@ for a in range(n):
             if ans < result:
                 ans = result
 
-
 print(ans)
