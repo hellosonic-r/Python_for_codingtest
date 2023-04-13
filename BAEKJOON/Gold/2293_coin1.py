@@ -8,3 +8,4 @@ coin.sort(reverse=True)
 
 for i in range(n):
     coin[i]
+    
