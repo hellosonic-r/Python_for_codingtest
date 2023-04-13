@@ -29,3 +29,5 @@ b = ['apple','bbbbbb']
 
 print(a<b)
 
+
+
