@@ -23,3 +23,4 @@ for test_case in range(1, t+1):
     print(result)
     print("#{} {}".format(test_case, len(result)))
     
+    
