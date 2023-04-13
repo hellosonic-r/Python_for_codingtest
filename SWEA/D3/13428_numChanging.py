@@ -36,3 +36,4 @@ for test_case in range(1, 1+t):
     #         else:
     #             min_li[i], min_li[min_li.index(sorted_num_li[i])] = min_li[min_li.index(sorted_num_li[i])], min_li[i]
     # print(max_li, min_li)
+    
