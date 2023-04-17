@@ -32,37 +32,103 @@
 
 ### bfs로 다시 풀어보자
 
+# from collections import deque
+
+# n, m = map(int, input().split())
+# board = []
+# for _ in range(n):
+#     board.append(list(map(int, str(input()))))
+# v = [[0] * m for _ in range(n)]
+
+# dx = [0,1,0,-1]
+# dy = [1,0,-1,0]
+
+# def bfs(sx,sy, ex,ey):
+#     queue = deque()
+#     queue.append((sx,sy))
+#     v[sy][sx] = 1
+#     while queue:
+#         x,y = queue.popleft()
+#         if (x,y) == (ex, ey):
+#             return v[ey][ex]
+
+#         for i in range(4):
+#             nx = x + dx[i]
+#             ny = y + dy[i]
+#             if nx<0 or ny<0 or nx>=m or ny>=n:
+#                 continue
+#             else:
+#                 if board[ny][nx] == 1 and v[ny][nx] == 0:
+#                     queue.append((nx, ny))
+#                     v[ny][nx] = v[y][x] + 1
+
+# ans = (bfs(0,0, m-1, n-1))
+
+# print(ans)
+
+# ##bfs 다시
+# from collections import deque
+
+# def bfs(sx,sy,ex,ey):
+#     queue = deque()
+#     queue.append((sx,sy))
+#     visited[sy][sx] = 1
+
+#     while queue:
+#         x,y = queue.popleft()
+#         if (x,y) == (ex,ey):
+#             return visited[ey][ex]
+#         for i in range(4):
+#             nx = x + dx[i]
+#             ny = y + dy[i]
+#             if nx<0 or ny<0 or nx>=m or ny>=n:
+#                 continue
+#             else:
+#                 if board[ny][nx] == 1 and visited[ny][nx] == 0:
+#                     queue.append((nx,ny))
+#                     board[ny][nx] = 0
+#                     visited[ny][nx] = visited[y][x] + 1
+
+# n,m = map(int, input().split())
+# board = []
+# for _ in range(n):
+#     board.append(list(map(int, str(input()))))
+
+# dx = [0,1,0,-1]
+# dy = [1,0,-1,0]
+
+# visited = [[0] * m for _ in range(n)]
+# print(bfs(0,0,m-1,n-1))
+
+
+
+##bfs 다시
 from collections import deque
 
-n, m = map(int, input().split())
-board = []
-for _ in range(n):
-    board.append(list(map(int, str(input()))))
-v = [[0] * m for _ in range(n)]
-
-dx = [0,1,0,-1]
-dy = [1,0,-1,0]
-
-def bfs(sx,sy, ex,ey):
+def bfs(sx,sy,ex,ey):
     queue = deque()
     queue.append((sx,sy))
-    v[sy][sx] = 1
+    visited[sy][sx] = 1
     while queue:
         x,y = queue.popleft()
-        if (x,y) == (ex, ey):
-            return v[ey][ex]
-
+        if (x,y) == (ex,ey):
+            return visited[ey][ex]
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
+            nx = x+dx[i]
+            ny = y+dy[i]
             if nx<0 or ny<0 or nx>=m or ny>=n:
                 continue
             else:
-                if board[ny][nx] == 1 and v[ny][nx] == 0:
-                    queue.append((nx, ny))
-                    v[ny][nx] = v[y][x] + 1
+                if board[ny][nx] == 1 and visited[ny][nx] == 0:
+                    board[ny][nx] = 0
+                    visited[ny][nx] = visited[y][x] + 1
 
-ans = (bfs(0,0, m-1, n-1))
+n,m = map(int, input().split())
+board = []
+for _ in range(n):
+    board.append(list(map(int, str(input()))))
+dx = [0,1,0,-1]
+dy = [1,0,-1,0]
 
-print(ans)
-
+visited = [[0]*m for _ in range(n)]
+print(bfs(0,0,m-1,n-1))
