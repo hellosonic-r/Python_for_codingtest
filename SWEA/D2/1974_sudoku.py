@@ -46,3 +46,49 @@ for test_case in range(1, t+1):
     print("#{} {}".format(test_case, ans))
             
         
+##다시 풀어보기
+t = int(input())
+for test_case in range(1, t+1):
+    board = []
+    for _ in range(9):
+        board.append(list(map(int, input().split())))
+    
+    must = list(range(1,10))
+    line_check = -1
+    for i in range(9):
+        garo_check = []
+        sero_check = []
+        for j in range(9):
+            garo_check.append(board[i][j]) 
+            sero_check.append(board[j][i])
+        garo_check.sort()
+        sero_check.sort()
+        if garo_check == must and sero_check == must:
+            line_check = 1
+        else:
+            line_check = 0
+            break
+
+    box_check = -1
+    for i in range(3): # 0, 1, 2 / 0, 3, 6이 되어야 함.
+        for j in range(3):
+            temp_list = []
+            for k in range(3):
+                temp_list += board[(i*3)+k][j*3:(j*3)+3]
+            temp_list.sort()
+            if temp_list == must:
+                box_check = 1
+            else:
+                box_check = 0
+                break
+        #반드시 상위 for문에 대해 break 처리 해주어야 함
+        if box_check == 0:
+            break
+
+    if line_check == 1 and box_check == 1:
+        print("#{} {}".format(test_case, 1))
+    else:
+        print("#{} {}".format(test_case, 0))
+
+
+    
