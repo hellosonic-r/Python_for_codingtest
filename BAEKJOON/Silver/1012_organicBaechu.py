@@ -52,8 +52,6 @@ def bfs(sx,sy):
 
     while queue:
         x,y = queue.popleft()
-        board[y][x] = 0    #큐에서 뺀 다음 방문체크를 하면 시간초과 에러 발생(중복방문)
-        visited[y][x] = 1  
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
@@ -61,6 +59,8 @@ def bfs(sx,sy):
                 continue
             else:
                 if board[ny][nx] == 1 and visited[ny][nx] == 0:
+                    board[ny][nx] = 0 #배추가 심어진 좌표(1)를 방문하면 (0)으로 바꾼다.
+                    visited[ny][nx] = 1
                     queue.append((nx,ny))
 
 t = int(input())
