@@ -29,6 +29,7 @@ for test_case in range(1, t+1):
     
     for i in range(len(score_list)):
         if score_list[i] >= result:
+            result = score_list[i]
             ans = i
         
     print("#{} {}".format(test_case, ans))
