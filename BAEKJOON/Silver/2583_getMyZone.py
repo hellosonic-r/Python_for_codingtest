@@ -1,52 +1,53 @@
-# from collections import deque
+from collections import deque
 
-# def bfs(x,y):
-#     global count
-#     queue = deque()
-#     queue.append((x,y))
-#     visited[y][x] = 1
-#     board[y][x] = 0
-#     count = 1
-#     while queue:
-#         x,y = queue.popleft()
-#         for i in range(4):
-#             nx = x + dx[i]
-#             ny = y + dy[i]
-#             if nx<0 or ny<0 or nx>=n or ny>=m:
-#                 continue
-#             else:
-#                 if visited[ny][nx] == 0 and board[ny][nx] == 1:
-#                     visited[ny][nx] = 1
-#                     board[ny][nx] = 0
-#                     count += 1
-#                     queue.append((nx,ny))
+def bfs(x,y):
+    global count
+    queue = deque()
+    queue.append((x,y))
+    visited[y][x] = 1
+    board[y][x] = 0
+    count = 1
+    while queue:
+        x,y = queue.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if nx<0 or ny<0 or nx>=n or ny>=m:
+                continue
+            else:
+                if visited[ny][nx] == 0 and board[ny][nx] == 1:
+                    visited[ny][nx] = 1
+                    board[ny][nx] = 0
+                    count += 1
+                    queue.append((nx,ny))
 
-# m,n,k = map(int, input().split()) #m:세로 n:가로
-# board = [[1]*n for _ in range(m)]
-# for _ in range(k):
-#     x1,y1,x2,y2 = map(int,input().split())
-#     for i in range(y1, y2):
-#         for j in range(x1, x2):
-#             board[i][j] = 0
+m,n,k = map(int, input().split()) #m:세로 n:가로
+board = [[1]*n for _ in range(m)]
+for _ in range(k):
+    x1,y1,x2,y2 = map(int,input().split())
+    for i in range(y1, y2):
+        for j in range(x1, x2):
+            board[i][j] = 0
 
-# visited = [[0]*n for _ in range(m)]
-# count = 0
+visited = [[0]*n for _ in range(m)]
+count = 0
 
-# dx = [0,1,0,-1]
-# dy = [1,0,-1,0]
-# ans = 0
-# result = []
-# for i in range(m):
-#     for j in range(n):
-#         if board[i][j] == 1:
-#             bfs(j,i)
-#             result.append(count)
-#             count = 0
-#             ans += 1
+dx = [0,1,0,-1]
+dy = [1,0,-1,0]
+ans = 0
+result = []
+for i in range(m):
+    for j in range(n):
+        if board[i][j] == 1:
+            bfs(j,i)
+            result.append(count)
+            count = 0
+            ans += 1
 
-# result.sort()
-# print(ans)
-# print(" ".join(map(str,result)))
+result.sort()
+print(ans)
+print(" ".join(map(str,result)))
+
 
 ##다시 풀어보기
 from collections import deque
@@ -84,22 +85,21 @@ for _ in range(k):
         for j in range(x1,x2):
             board[i][j] = 0
 
-
 dx = [0,1,0,-1]
 dy = [-1,0,1,0]
 
-ans = 0
+count = 0 #bfs함수 실행 횟수
 num = 0
-area_list = []
+area_list = [] #영역의 크기를 담을 리스트
 for i in range(m):
     for j in range(n):
         if board[i][j] == 1:
             visited = [[0]*n for _ in range(m)]
-            bfs(j,i)
+            bfs(j,i) #bfs를 실행하고 오면, 한 번 거쳐간 board 좌표값은 0이 된다.
             area_list.append(num)
-            ans += 1
+            count += 1
 
 area_list.sort()
 
-print(ans)
+print(count)
 print(" ".join(map(str, area_list)))
