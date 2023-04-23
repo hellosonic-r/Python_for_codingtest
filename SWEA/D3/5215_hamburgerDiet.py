@@ -103,74 +103,128 @@
 #     dfs(0,0,0,[0],[0])
 #     print(max_score)
 
-## 이진트리로 다시 풀어보기 (Pass)
-def dfs(count, score_sum, cal_sum):
+
+
+
+# ## 이진트리로 다시 풀어보기 (Pass)
+# def dfs(count, score_sum, cal_sum):
+#     global max_score
+#     if cal_sum>limit: #처음에 limit 대신 1000을 넣어서 TC 20개 중 10개만 맞음 ..
+#         return
+#     if max_score < score_sum:
+#         max_score = score_sum
+#     if count == n:
+#         return
+#     dfs(count+1, score_sum+score_list[count], cal_sum+cal_list[count])    #선택o
+#     dfs(count+1, score_sum, cal_sum)    #선택x
+
+# t = int(input())
+
+# for test_case in range(1, t+1):
+#     n, limit = map(int, input().split())
+#     score_list = []
+#     cal_list = []
+#     max_score = 0
+#     for _ in range(n):
+#         score, cal = map(int, input().split())
+#         score_list.append(score)
+#         cal_list.append(cal)
+#     dfs(0, 0, 0)
+#     print("#{} {}".format(test_case, max_score))
+
+# ## 멀티트리로 다시 풀어보기
+# def dfs(count, temp_sum, cal_sum):
+#     global max_score
+#     if sum(cal_sum) > limit:
+#         return
+#     if max_score < sum(temp_sum):
+#         max_score = sum(temp_sum)
+#     if count >= n:
+#         return
+#     for i in range(n):
+#         if visited[i] == 0:
+#             visited[i] = 1
+#             temp_sum.append(score_list[i])
+#             cal_sum.append(cal_list[i])
+#             dfs(count+1, temp_sum, cal_sum)
+#             visited[i] = 0
+#             temp_sum.pop()
+#             cal_sum.pop()
+
+# t = int(input())
+
+# for test_case in range(1, t+1):
+#     n, limit = map(int, input().split())
+#     score_list = []
+#     cal_list = []
+#     temp_sum = []
+#     cal_sum = []
+#     max_score = 0
+#     visited = [0]*n
+#     for _ in range(n):
+#         score, cal = map(int, input().split())
+#         score_list.append(score)
+#         cal_list.append(cal)
+#     dfs(0, [0], [0])
+#     print("#{} {}".format(test_case, max_score))
+        
+# ##다시풀어보기(이진트리)    
+# def dfs(count, score_sum, cal_sum):
+#     global max_score
+#     if cal_sum > l:
+#         return
+#     if max_score < score_sum:
+#         max_score = score_sum
+#     if count == n:
+#         return
+
+#     dfs(count+1, score_sum, cal_sum)
+#     dfs(count+1, score_sum+score_list[count], cal_sum+cal_list[count])
+
+# t = int(input())
+# for test_case in range(1,t+1):
+#     n, l = map(int, input().split()) #n:재료개수  l:제한칼로리
+#     score_list = []
+#     cal_list = []
+#     for _ in range(n):
+#         score, cal = map(int, input().split())
+#         score_list.append(score)
+#         cal_list.append(cal)
+    
+#     score_sum = 0
+#     cal_sum = 0
+#     max_score = 0
+#     dfs(0,0,0)
+#     print(max_score)
+    
+##다시풀어보기(멀티트리)
+def dfs(count, start, score_sum, cal_sum):
     global max_score
-    if cal_sum>limit: #처음에 limit 대신 1000을 넣어서 TC 20개 중 10개만 맞음 ..
+    if cal_sum > l:
         return
     if max_score < score_sum:
         max_score = score_sum
     if count == n:
         return
-    dfs(count+1, score_sum+score_list[count], cal_sum+cal_list[count])    #선택o
-    dfs(count+1, score_sum, cal_sum)    #선택x
+    for i in range(start, n):
+        dfs(count+1, i+1, score_sum+score_list[i], cal_sum+cal_list[i])
 
 t = int(input())
-
-for test_case in range(1, t+1):
-    n, limit = map(int, input().split())
+for test_case in range(1,t+1):
+    n, l = map(int, input().split())
     score_list = []
     cal_list = []
-    max_score = 0
     for _ in range(n):
         score, cal = map(int, input().split())
         score_list.append(score)
         cal_list.append(cal)
-    dfs(0, 0, 0)
-    print("#{} {}".format(test_case, max_score))
 
-## 멀티트리로 다시 풀어보기
-def dfs(count, temp_sum, cal_sum):
-    global max_score
-    if sum(cal_sum) > limit:
-        return
-    if max_score < sum(temp_sum):
-        max_score = sum(temp_sum)
-    if count >= n:
-        return
-    for i in range(n):
-        if visited[i] == 0:
-            visited[i] = 1
-            temp_sum.append(score_list[i])
-            cal_sum.append(cal_list[i])
-            dfs(count+1, temp_sum, cal_sum)
-            visited[i] = 0
-            temp_sum.pop()
-            cal_sum.pop()
-
-t = int(input())
-
-for test_case in range(1, t+1):
-    n, limit = map(int, input().split())
-    score_list = []
-    cal_list = []
-    temp_sum = []
-    cal_sum = []
     max_score = 0
-    visited = [0]*n
-    for _ in range(n):
-        score, cal = map(int, input().split())
-        score_list.append(score)
-        cal_list.append(cal)
-    dfs(0, [0], [0])
+    dfs(0,0,0,0)
     print("#{} {}".format(test_case, max_score))
-        
-                         
-        
-        
-    
 
     
+
         
     
         
