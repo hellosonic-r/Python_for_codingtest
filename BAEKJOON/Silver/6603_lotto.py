@@ -32,7 +32,7 @@ def dfs(n, start, temp_list):
 
 while True:
     num_list = list(map(int, input().split()))
-    if num_list == [0]:
+    if num_list == [0]: #0을 입력받는다면 반복문 탈출
         break
     count = num_list.pop(0)
     result = []
@@ -40,3 +40,4 @@ while True:
     for i in result:
         print(" ".join(map(str, i)))
     print()
+
