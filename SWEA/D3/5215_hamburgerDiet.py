@@ -197,7 +197,7 @@
 #     dfs(0,0,0)
 #     print(max_score)
     
-##다시풀어보기(멀티트리)
+##다시풀어보기(멀티트리) - Pass
 def dfs(count, start, score_sum, cal_sum):
     global max_score
     if cal_sum > l:
