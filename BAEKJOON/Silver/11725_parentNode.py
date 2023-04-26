@@ -1,10 +1,11 @@
+import sys
+sys.setrecursionlimit(10**6)
+
 def dfs(sn):
-    global ans
     for i in board[sn]:
         if visited[i] == 0:
             visited[i] = sn
             dfs(i)
-
 
 n = int(input())
 board = [[] for _ in range(n+1)]
