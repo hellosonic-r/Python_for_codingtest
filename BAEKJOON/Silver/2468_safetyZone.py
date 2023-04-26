@@ -1,3 +1,4 @@
+#내가 작성한 코드
 from collections import deque
 
 def bfs(sx,sy):
@@ -54,6 +55,58 @@ for height in range(max_height):
             if temp_board[k][z] >= 1: #좌표 값이 1 이상인 곳은 아직 안잠긴 곳
                 visited = [[0]*n for _ in range(n)] #bfs돌기 전 방문처리 위한 리스트 생성
                 bfs(z,k) #bfs를 수행하여 temp_board의 안 잠긴 곳을 잠긴 곳으로 표시
+                count+=1 #bfs수행했으니 count+1
+    
+    #height만큼 잠겼을 때 count값이 최대 값인지 확인 
+    if max_count < count:
+        max_count = count
+
+print(max_count)
+
+
+##다른 코드(지역의 높이 중 최대를 구하는 것과, 0~최대높이만큼 빼주는 for문을 간략화하였다.)
+from collections import deque
+
+def bfs(sx,sy,r):
+    queue = deque()
+    queue.append((sx,sy))
+    visited[sy][sx] = 1 #시작 좌표 방문처리
+    while queue:
+        x,y = queue.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if nx<0 or ny<0 or nx>=n or ny>=n:
+                continue
+            else:
+                #다음 좌표가 방문처리 안되었거나 board가 height보다 큰 곳(안잠긴 곳. height와 같기만 해도 잠기게 됨)
+                if visited[ny][nx] == 0 and board[ny][nx] > height:
+                    #방문해서 방문처리 해주고
+                    visited[ny][nx] = 1
+                    #큐에 추가해줌으로써 그 다음 좌표가 잠겼는지 안잠겼는지 계속해서 확인한다 
+                    queue.append((nx,ny))
+
+n = int(input())
+board = [] #지역의 높이 정보 리스트
+max_height = 0
+for _ in range(n):
+    board.append(list(map(int, input().split())))
+    #현재까지의 최대값과 board에 저장된 마지막 리스트 중 최대값을 비교
+    max_height = max(max_height, max(board[-1])) 
+
+dx = [0,1,0,-1]
+dy = [-1,0,1,0]
+
+max_count = 0
+#0~(최대높이-1) 잠기는 모든 경우의 수 계산
+for height in range(max_height):
+    visited = [[0]*n for _ in range(n)]
+    count = 0 #잠기지 않는 안전한 영역 초기화
+    for k in range(n):
+        for z in range(n):
+            #board 값이 height보다 크고(안잠기고) 아직 방문처리 안되어 있다면 방문한다.
+            if board[k][z] > height and visited[k][z] == 0: 
+                bfs(z,k,height) #bfs를 수행하여 board좌표 중 안잠긴 곳을 방문 체크
                 count+=1 #bfs수행했으니 count+1
     
     #height만큼 잠겼을 때 count값이 최대 값인지 확인 
