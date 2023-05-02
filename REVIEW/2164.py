@@ -12,4 +12,3 @@ while len(queue) != 1:
     queue.append(queue.popleft())
 
 print(queue[0])
-
