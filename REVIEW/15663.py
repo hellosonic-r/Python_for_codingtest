@@ -13,7 +13,6 @@ def dfs(count, temp_list):
             dfs(count+1, temp_list+[num_list[i]])
             visited[i] = 0
 
-
 n, m = map(int, input().split())
 num_list = list(map(int,input().split()))
 num_list.sort() ##1 7 9 9
