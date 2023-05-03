@@ -1,26 +1,24 @@
-ans = 0
 score_list = []
 for _ in range(10):
     score_list.append(int(input()))
 
-i = 0
 ans = 0
-idx = 0
-while True:
-    if i == 10:
+score_sum = 0
+for i in range(len(score_list)):
+    score_sum += score_list[i]
+    if i == 0 and score_sum == 100:
+        ans = 100
         break
-    ans += score_list[i]
-    if ans > 100:
-         break
-    i += 1
-
-if i == 10:
-    print(ans)
+    if i != 0 and score_sum >= 100:
+        if abs(score_sum - 100) < abs(score_sum - score_list[i] - 100):
+            ans = score_sum
+        elif abs(score_sum - 100) > abs(score_sum - score_list[i] - 100):
+            ans = score_sum - score_list[i]
+        else: 
+            ans = score_sum
+        break
+    
+if ans == 0:
+    print(sum(score_list))
 else:
-    if ans - 100 < abs(ans-score_list[i]-100):
-        print(ans)
-    elif ans - 100 > abs(ans-score_list[i]-100):
-        print(ans)
-    else:
-        print(ans)
-
+    print(ans)
