@@ -1,33 +1,16 @@
 n = int(input())
 
 for _ in range(n):
-    a = list(map(int, input().split()))
-    b = list(map(int, input().split()))
-    a.pop(0)
-    a.sort(reverse=True)
-    b.pop(0)
-    b.sort(reverse=True)
-    if a>b:
+    a_list = list(map(int, input().split()))
+    b_list = list(map(int, input().split()))
+    a = a_list.pop(0)
+    b = b_list.pop(0)
+    a_list.sort(reverse=True)
+    b_list.sort(reverse=True)
+
+    if a_list>b_list:
         print("A")
-    elif a<b:
+    elif a_list<b_list:
         print("B")
     else:
         print("D")
-
-# a = [4,4,4]
-# b = [4,3,2,1,1]
-
-# print(a>b)
-
-# a = [4,4,4]
-# b = [4,3,4,4,4]
-
-# print(a>b)
-
-a = ['apple','banana','coconut']
-b = ['apple','bbbbbb']
-
-print(a<b)
-
-
-
