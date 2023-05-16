@@ -1,37 +1,43 @@
-# def tri(i):
-#     if i == n:
-#         return
-#     board[i].append(1)
-#     for j in range(i-1):
-#         board[i].append(board[i-1][j] + board[i-1][j+1])
-#     board[i].append(1)
-#     tri(i+1)
+t = int(input())
+for test_case in range(1,t+1):
+    n = int(input())
+    board = [[] for _ in range(n)]
+    board[0] = [1]
+    count = 1
+    while True:
+        if count == n:
+            break
+        count += 1
+        board[count-1].append(1)
+        for i in range(1, count-1):
+            board[count-1].append(board[count-2][i-1]+board[count-2][i])
+        board[count-1].append(1)
     
-# t = int(input())
-
-# for test_case in range(1,t+1):
-#     n = int(input())
-#     board = [[1]] + [[1,1]] + [[] for _ in range(n-2)]
-#     tri(2)
-    
-#     for i in board:
-#         print(i)
-    
-def tri(i):
-    if i == n:
-        return
-    board[i].append(1)
-    for j in range(i-1):
-        board[i].append(board[i-1][j] + board[i-1][j+1])
-    board[i].append(1)
-    tri(i+1)
-    
-
-n,k = map(int, input().split())
-board = [[1]] + [[1,1]] + [[] for _ in range(n-2)]
-tri(2)
-    
-print(board[n-1][k-1])
+    print("#{}".format(test_case))
+    for i in board:
+        print(" ".join(map(str, i)))
 
 
-    
+##다시 풀어보기
+t = int(input())
+for test_case in range(1,t+1):
+    n = int(input())
+    board = [[] for _ in range(n)]
+    board[0].append(1) #i=0일때, 1
+    i = 1 #i=1일때부터 시작
+    while True:
+        if i == n:
+            break
+        board[i].append(1) #맨 앞에 1 넣는다
+
+        #규칙을 찾아 식 구현
+        for j in range(1,i):
+            board[i].append(board[i-1][j-1]+board[i-1][j])
+
+        board[i].append(1) #맨 뒤에 1 넣는다
+        i+=1 #다음 층으로
+
+    print("#{}".format(test_case))
+    for num in board:
+        print(" ".join(map(str, num)))
+
