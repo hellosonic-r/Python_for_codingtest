@@ -6,3 +6,4 @@ for i in range(len(num_list)):
     print((num_list[i] - n*k),end = " ")
 
 print()
+
