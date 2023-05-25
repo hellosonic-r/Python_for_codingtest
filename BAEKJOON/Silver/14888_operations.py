@@ -30,5 +30,3 @@ dfs(0, num_list[0])
 
 print(max(ans))
 print(min(ans))
-
-
