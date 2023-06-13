@@ -31,6 +31,7 @@ n, m = map(int, input().split())
 tree = list(map(int, input().split()))
 start, end = 1, max(tree)
 
+result = 0 #높이 최대값을 저장하는 변수
 while start <= end:
     mid = (start+end)//2
     log = 0 #잘린 나무의 총합
@@ -38,11 +39,12 @@ while start <= end:
         if t >= mid:
             log += (t-mid)
 
-    if log >= m:
-        start = mid + 1
+    if log < m:
+        end = mid-1 
     else:
-        end = mid - 1
+        result = mid #절단기 높이의 최대값을 구하는 것이기 때문에, 여기에 result 저장
+        start = mid+1
 
-#start > end가 되게 되면 반복문을 탈출하게 되는데,
-#이때 end에 저장된 값이 찾으려는 값과 동일하다.
-print(end) 
+print(result)
+
+
