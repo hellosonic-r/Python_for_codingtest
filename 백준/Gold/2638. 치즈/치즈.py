@@ -15,7 +15,7 @@ def bfs(sx,sy):
             ny = y+dy[i]
             if nx<0 or ny<0 or nx>=m or ny>=n:
                 continue
-            elif 0<=nx<m and 0<=ny<n:
+            else:
                 if board[ny][nx] == 1 or v[ny][nx] == 1:
                     continue
                 else:   
