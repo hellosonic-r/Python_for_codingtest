@@ -17,3 +17,4 @@ for test_case in range(1,t+1):
                 break
 
     print("#{} {} {}".format(test_case, board[n-1][0], board[n-1][-1]))
+

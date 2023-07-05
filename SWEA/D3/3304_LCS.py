@@ -16,4 +16,3 @@ for test_case in range(1, t+1):
 
     print("#{} {}".format(test_case, max(dp)))
 
-

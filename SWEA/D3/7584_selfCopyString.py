@@ -17,3 +17,4 @@ for test_case in range(1,t+1):
         i+=1
 
     print("#{} {}".format(test_case, p[k-1]))
+    

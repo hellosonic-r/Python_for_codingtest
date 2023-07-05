@@ -46,3 +46,4 @@ for test_case in range(1, t+1):
         ans = - 1
 
     print("#{} {}".format(test_case, ans))
+
