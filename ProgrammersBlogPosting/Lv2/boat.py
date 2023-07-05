@@ -29,7 +29,6 @@ def solution(people, limit):
     return answer
 
 
-
 ##다른코드 - 덱 활용
 from collections import deque
 
