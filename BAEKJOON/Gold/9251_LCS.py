@@ -22,4 +22,3 @@ while start < len(a):
 
 print(max_ans)
 
-

@@ -36,5 +36,3 @@ for _ in range(n):
 
 dp = [0] * (k+1)
 
-for coin in coin_list:
-    

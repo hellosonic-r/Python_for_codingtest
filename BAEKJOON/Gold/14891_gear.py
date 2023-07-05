@@ -176,4 +176,3 @@ print(ans)
 #print()
 #for i in range(4):
 #    print(" ".join(map(str,gear[i])))
-

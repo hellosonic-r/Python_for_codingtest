@@ -67,4 +67,3 @@ while True: #터질 뿌요가 없을때까지 반복을 진행
 
 print(answer)
 
-

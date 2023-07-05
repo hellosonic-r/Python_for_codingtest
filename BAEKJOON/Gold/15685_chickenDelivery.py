@@ -103,8 +103,3 @@ for k in result: #치킨집 좌표를 하나씩 꺼내면서 살펴본다.
                 
 print(min(ans))
 
-
-
-
-
-
