@@ -16,3 +16,4 @@ for i in range(8):
         cnt += 1
 
 print(cnt)
+
