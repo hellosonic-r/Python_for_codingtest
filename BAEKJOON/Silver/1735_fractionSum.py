@@ -23,7 +23,6 @@
 
 
 
-
 ##시간초과
 a_up, a_down = map(int,input().split()) #a의 분자/분모
 b_up, b_down = map(int,input().split()) #b의 분자/분모

@@ -43,7 +43,6 @@ for i in range(n):
 
 
 
-
 ##bfs로 풀이
 from collections import deque
 

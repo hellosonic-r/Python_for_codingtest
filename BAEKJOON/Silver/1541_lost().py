@@ -23,3 +23,4 @@ min_ans = 1e9
 for i in range(len(num_list)):
     for j in range(i+1,len(num_list)):
         num_list[i:j]
+        

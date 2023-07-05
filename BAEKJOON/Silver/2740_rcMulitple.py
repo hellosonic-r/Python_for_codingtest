@@ -21,4 +21,3 @@ for i in result:
     print()
 
 
-

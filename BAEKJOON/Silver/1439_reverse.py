@@ -32,3 +32,4 @@ for i in range(len(s)):
             continue
 
 print(min(cnt0, cnt1))
+

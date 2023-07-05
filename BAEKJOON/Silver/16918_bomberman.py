@@ -227,5 +227,3 @@ else:
         for i in range(r):
             print("".join(map(str, bomb2[i])))
 
-
-

@@ -17,4 +17,3 @@ for i in range(m-2):
                 answer = temp_sum
 
 print(answer) 
-

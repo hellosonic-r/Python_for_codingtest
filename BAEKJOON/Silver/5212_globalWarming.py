@@ -169,4 +169,3 @@ else:
     for i in after[r_start:r_end+1]:
         print("".join(i[idx[0]:idx[-1]+1]))
     
-
