@@ -59,6 +59,7 @@
 # print(ans)
 
 
+##3차원 배열 사용하여 시간초과 해결
 from collections import deque
 
 def bfs(sx,sy,z):
